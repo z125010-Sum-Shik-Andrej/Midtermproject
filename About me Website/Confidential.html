@@ -1,0 +1,177 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>   
+  <meta charset="UTF-8">   
+  <meta name="viewport" content="width=device-width, initial-scale=1">   
+  <title>Confidential Quantum Entanglement</title>   
+  <style>     
+    /* Reset and basic page setup */     
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html, body {       
+      width: 100%; height: 100%;       
+      background: #111;       
+      overflow-x: hidden;      
+      position: relative;       
+      font-family: sans-serif;       
+      color: #eee;     
+    }
+    
+    /* Navigation button with hover effects */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(50, 50, 50, 0.7);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      color: #eee;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+    
+    .back-button:hover {
+      background: rgba(80, 80, 80, 0.8);
+      border-color: rgba(255, 0, 0, 0.6);
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+      text-decoration: none;
+    }
+      
+    /* Animated confidential watermark */     
+    .watermark {       
+      position: absolute;       
+      top: 50%;       
+      left: 50%;       
+      transform: translate(-50%, -50%) rotate(-45deg);       
+      transform-origin: center;       
+      font-size: 9vw;      
+      font-weight: bold;       
+      text-transform: uppercase;       
+      color: rgba(255, 0, 0, 0.5);   
+      white-space: nowrap;       
+      filter: drop-shadow(0 0 30px rgba(255,0,0,1));
+      pointer-events: none;       
+      animation: pulse 3s ease-in-out infinite;       
+      z-index: 1;     
+    }
+      
+    /* Main content with blur effect */     
+    .content {       
+      position: absolute;       
+      top: 50%; left: 50%;       
+      width: 80%; 
+      max-width: 800px;       
+      transform: translate(-50%, -50%);       
+      line-height: 1.6;       
+      font-size: 1.2rem;       
+      filter: blur(4px);       
+      z-index: 2;       
+      text-align: justify;
+      padding: 20px 0;
+    }
+      
+    /* Animation for watermark pulsing effect */     
+    @keyframes pulse {       
+      0%, 100% {         
+        opacity: 0.5;         
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1);       
+      }       
+      50% {         
+        opacity: 0.8;         
+        transform: translate(-50%, -50%) rotate(-45deg) scale(1.05);       
+      }     
+    }
+    
+    /* Responsive design adjustments */
+    @media screen and (max-width: 768px) {
+      .content {
+        width: 90%;
+        font-size: 1rem;
+        top: 55%;
+      }
+      
+      .watermark {
+        font-size: 12vw;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .content {
+        width: 95%;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        filter: blur(3px);
+      }
+      
+      .watermark {
+        font-size: 14vw;
+      }
+      
+      .back-button {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+      .content {
+        width: 85%;
+        top: 53%;
+      }
+    }
+    
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+      .content {
+        top: 60%;
+        width: 95%;
+        max-width: 90%;
+        font-size: 0.9rem;
+      }
+      
+      .watermark {
+        font-size: 8vw;
+      }
+      
+      .back-button {
+        top: 10px;
+        left: 10px;
+      }
+    }
+  </style> 
+</head> 
+<body>
+  <a href="aboutme.html" class="back-button">Back to Main Page</a>
+    
+  <div class="watermark">CONFIDENTIAL</div>
+    
+  <div class="content">     
+    <p>       
+      Quantum entanglement describes a striking feature of quantum mechanics where two or more particles       
+      become linked in such a way that the state of one particle instantaneously influences the state       
+      of the other, no matter how far apart they are. When entangled, measurements on one particle       
+      immediately determine the outcome for its partner, reflecting a deep nonlocal correlation.     
+    </p>     
+    <p>       
+      First highlighted by Einstein, Podolsky, and Rosen, and later experimentally confirmed through       
+      Bell test experiments, entanglement defies classical intuition and underpins emerging quantum       
+      technologies. This "spooky action at a distance" enables protocols such as quantum teleportation,       
+      superdense coding, and device-independent quantum cryptography.     
+    </p>     
+    <p>       
+      Today's research pushes entanglement into larger many-body systems, exploring its role in quantum       
+      simulation, error-corrected computing, and entanglement-enhanced sensing. Scaling and stabilizing       
+      these correlations remains a major challenge—and the key to unlocking the full potential of       
+      quantum information science.     
+    </p>   
+  </div>  
+</body> 
+</html>

@@ -1,0 +1,413 @@
+/* Base styling for the entire page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Creates decorative AI-themed side panels using pseudo-elements */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* Left panel with neural network visualization using SVG background */
+body::before {
+  left: 0;
+  background: linear-gradient(to bottom,
+    rgba(45, 52, 75, 0.95),
+    rgba(25, 32, 55, 0.95)),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' fill='%2316213e'/%3E%3C!-- Nodes --%3E%3Ccircle cx='125' cy='100' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='125' cy='200' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='125' cy='300' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='125' cy='400' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='125' cy='500' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='125' cy='600' r='12' fill='%234f8bf7' opacity='0.8'/%3E%3Ccircle cx='275' cy='150' r='12' fill='%2350e3c2' opacity='0.8'/%3E%3Ccircle cx='275' cy='350' r='12' fill='%2350e3c2' opacity='0.8'/%3E%3Ccircle cx='275' cy='550' r='12' fill='%2350e3c2' opacity='0.8'/%3E%3C!-- Connections --%3E%3Cline x1='125' y1='100' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3Cline x1='125' y1='100' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='100' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.2'/%3E%3Cline x1='125' y1='200' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='200' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3Cline x1='125' y1='200' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='300' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.2'/%3E%3Cline x1='125' y1='300' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='300' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3Cline x1='125' y1='400' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.2'/%3E%3Cline x1='125' y1='400' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='400' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3Cline x1='125' y1='500' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.2'/%3E%3Cline x1='125' y1='500' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='500' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3Cline x1='125' y1='600' x2='275' y2='150' stroke='%237d9bf7' stroke-width='2' opacity='0.2'/%3E%3Cline x1='125' y1='600' x2='275' y2='350' stroke='%237d9bf7' stroke-width='2' opacity='0.4'/%3E%3Cline x1='125' y1='600' x2='275' y2='550' stroke='%237d9bf7' stroke-width='2' opacity='0.6'/%3E%3C/svg%3E");
+  box-shadow: inset -5px 0 25px rgba(79, 139, 247, 0.3);
+  border-right: 1px solid rgba(79, 139, 247, 0.3);
+}
+
+/* Right panel with circuit/chipset pattern using a different SVG background */
+body::after {
+  right: 0;
+  background: linear-gradient(to bottom,
+    rgba(45, 52, 75, 0.95),
+    rgba(25, 32, 55, 0.95)),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' fill='%2316213e'/%3E%3C!-- Horizontal lines --%3E%3Cpath d='M50,100 L350,100' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,200 L350,200' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,300 L350,300' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,400 L350,400' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,500 L350,500' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,600 L350,600' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M50,700 L350,700' stroke='%2350e3c2' stroke-width='2' opacity='0.7'/%3E%3C!-- Vertical lines --%3E%3Cpath d='M100,50 L100,750' stroke='%234f8bf7' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M200,50 L200,750' stroke='%234f8bf7' stroke-width='2' opacity='0.7'/%3E%3Cpath d='M300,50 L300,750' stroke='%234f8bf7' stroke-width='2' opacity='0.7'/%3E%3C!-- Connection nodes --%3E%3Ccircle cx='100' cy='100' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='200' cy='200' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='300' cy='300' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='100' cy='400' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='200' cy='500' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='300' cy='600' r='6' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='100' cy='700' r='6' fill='%23ffffff' opacity='0.8'/%3E%3C!-- Chip components --%3E%3Crect x='175' y='75' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='75' y='175' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='275' y='175' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='175' y='375' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='75' y='475' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='275' y='475' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3Crect x='175' y='575' width='50' height='50' rx='3' fill='none' stroke='%2350e3c2' stroke-width='2'/%3E%3C/svg%3E");
+  box-shadow: inset 5px 0 25px rgba(80, 227, 194, 0.3);
+  border-left: 1px solid rgba(80, 227, 194, 0.3);
+}
+
+/* Animation for the floating data points that move up the left side panel */
+@keyframes dataFlow {
+  0% { opacity: 0; transform: translateY(0) scale(0.8); }
+  50% { opacity: 1; transform: translateY(-20px) scale(1); }
+  100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+}
+
+/* Style for the individual animated data points created by JavaScript */
+.data-point {
+  position: fixed;
+  background-color: #50e3c2;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  z-index: -1;
+  animation: dataFlow 3s infinite ease-in-out;
+}
+
+/* Main content container for proper centering and spacing */
+.container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+/* Main title styling with gradient background and subtle shadow */
+h1 {
+  width: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(to right, #4f8bf7, #50e3c2);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 2.5em;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for each section container with left border accent */
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Creates the colored vertical line on the left of each section */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #4f8bf7, #50e3c2);
+}
+
+/* Section heading styles with flex layout for icon placement */
+section h2 {
+  color: #2d344b;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+/* Paragraph spacing and formatting */
+section p {
+  margin: 0.8rem 0;
+  line-height: 1.7;
+  color: #444;
+  text-align: justify;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* Adds custom SVG icons before each section heading */
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Custom icon for neural network section */
+#nn-scratch h2::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f8bf7'%3E%3Cpath d='M3 16h5v-2H3v2zm6.5 0h5v-2h-5v2zm6.5 0h5v-2h-5v2zM3 20h2v-2H3v2zm4 0h2v-2H7v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zM3 12h8v-2H3v2zm10 0h8v-2h-8v2zM3 4v4h18V4H3z'/%3E%3C/svg%3E");
+}
+
+/* Custom icon for GPT-2 section */
+#gpt2-finetune h2::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f8bf7'%3E%3Cpath d='M21 11.5v-2.5c0-1.65-1.35-3-3-3h-7v-2h3c.55 0 1-.45 1-1s-.45-1-1-1h-8c-.55 0-1 .45-1 1s.45 1 1 1h3v2h-7c-1.65 0-3 1.35-3 3v2.5c0 .92.51 1.72 1.25 2.15-.74.43-1.25 1.23-1.25 2.15v2.5c0 1.65 1.35 3 3 3h7v2h-3c-.55 0-1 .45-1 1s.45 1 1 1h8c.55 0 1-.45 1-1s-.45-1-1-1h-3v-2h7c1.65 0 3-1.35 3-3v-2.5c0-.92-.51-1.72-1.25-2.15.74-.43 1.25-1.23 1.25-2.15z'/%3E%3C/svg%3E");
+}
+
+/* Custom icon for quantum computing section */
+#ai-quantum h2::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f8bf7'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E");
+}
+
+/* Pulsing confidential label with animation */
+.confidential {
+  display: inline-block;
+  background: #e74c3c;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  animation: pulse 2s infinite;
+  margin-left: 10px;
+}
+
+/* Animation for the confidential tag pulse effect */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* Styling for report links with hover effects */
+a.report-link {
+  color: #4f8bf7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a.report-link:hover {
+  color: #50e3c2;
+  text-decoration: underline;
+}
+
+/* General link styling */
+a {
+  color: #4f8bf7;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #50e3c2;
+  text-decoration: underline;
+}
+
+/* Fixed navigation button with hover and active animations */
+.back-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: linear-gradient(to right, #4f8bf7, #50e3c2);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Subtle lift effect on hover */
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Click feedback effect */
+.back-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.back-button svg {
+  margin-right: 8px;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 1200px) {
+  body::before, body::after {
+    width: 150px;
+  }
+  
+  .container {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  body::before, body::after {
+    width: 80px;
+    opacity: 0.6;
+  }
+  
+  body {
+    padding: 1.5em;
+  }
+  
+  h1 {
+    font-size: 2em;
+    padding: 1.2rem;
+  }
+}
+
+/* iPad-specific optimizations */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+  body {
+    padding: 1.2em;
+  }
+  
+  .container {
+    width: 90%;
+    padding-top: 65px;
+  }
+  
+  body::before, body::after {
+    width: 60px;
+    opacity: 0.5;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+    padding: 1rem;
+  }
+  
+  section {
+    padding: 1.2rem;
+  }
+  
+  .back-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
+
+/* Mobile phone optimizations */
+@media only screen 
+and (max-width: 767px) {
+  body::before, body::after {
+    display: block;
+    width: 30px;
+    opacity: 0.4;
+  }
+  
+  body {
+    padding: 1em;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 500px;
+    padding-top: 55px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 1.6em;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    width: 100%;
+  }
+  
+  section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  section p {
+    text-align: left;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 0.85em;
+  }
+  
+  section h2 {
+    font-size: 1.3em;
+  }
+  
+  .confidential {
+    font-size: 0.8rem;
+    padding: 0.15em 0.4em;
+  }
+}
+
+/* Small phone optimizations */
+@media only screen 
+and (max-width: 375px) {
+  body::before, body::after {
+    width: 20px;
+  }
+  
+  .container {
+    width: 85%;
+  }
+  
+  h1 {
+    font-size: 1.4em;
+    padding: 0.7rem;
+  }
+  
+  .back-button {
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+  
+  section h2 {
+    font-size: 1.2em;
+  }
+  
+  section p {
+    font-size: 0.95em;
+  }
+}
+
+/* Special handling for iPhones with notches to respect safe areas */
+@supports (padding: max(0px)) {
+  .back-button {
+    padding-top: max(10px, env(safe-area-inset-top));
+    padding-left: max(15px, env(safe-area-inset-left));
+  }
+  
+  body {
+    padding-left: max(1em, env(safe-area-inset-left));
+    padding-right: max(1em, env(safe-area-inset-right));
+    padding-bottom: max(1em, env(safe-area-inset-bottom));
+  }
+}
+
+/* Safari on iOS specific fixes for content height issues */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  .container {
+    padding-bottom: 20px;
+  }
+}
