@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrej Sum-Shik's Website</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="mainstyle.css" />
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#cv">Past / CV</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#honors">Honors</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div id="scroll-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
+  </header>
+  <main>
+    <section id="hero" data-icon="fa-user-graduate">
+      <h1>Andrej Sum-Shik</h1>
+      <p>Research Field: Computer Science <br> Current Research Field: Physics</p>
+      <img src="Portrait.jpeg" alt="My portrait from the Santiago Bernabeu" width="200" height="250" class="portrait">
+      <div class="images-container">
+        <img src="Entanglement.png" alt="Entangled Quantum Object (Visualisation)" width="250">
+        <img src="NNBrain.png" alt="Neural Network shaped like brain" width="250">
+      </div>
+    </section>
+
+    <section id="timetable" data-icon="fa-calendar-alt">
+      <h2>Current Semester Timetable</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="time-slot">9:00 - 10:40</td><td></td><td>Advanced Quantum Beam Applications</td><td></td><td rowspan="2">Web Design and Programming</td><td></td></tr>
+          <tr><td class="time-slot">9:00 - 10:40</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="time-slot">13:20 - 15:00</td><td></td><td></td><td>Opto-Electronics</td><td></td><td></td></tr>
+          <tr><td class="time-slot">15:10 - 16:50</td><td></td><td></td><td>Computational Physical Chemistry</td><td>Electromagnetism</td><td></td></tr>
+          <tr><td class="time-slot">17:00 - 18:40</td><td>Meeting with Professor for RIOT internship</td><td></td><td>Meeting with Professor for RIOT internship</td><td>Meeting with Professor for RIOT internship</td><td>Meeting with Professor for RIOT internship</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cv" data-icon="fa-file-alt">
+      <h2>Past &amp; CV</h2>
+      <p>Please click on this link for my detail curriculum vitae.</p>
+      <a href="CV.html" class="btn">View CV &rarr;</a>
+      <img src="Travelling.jpg" alt="Me at the Grand Canyon" width="200" height="300">
+    </section>
+
+    <section id="research" data-icon="fa-flask">
+      <h2>Current Research</h2>
+      <ul>
+        <li><a href="Confidential.html">Quantum Computing Thesis</a> <span class="tag confidential"><em>Confidential</em></span></li>
+        <li><a href="Confidential.html">Fourier-Based Signature Algorithm</a> <span class="tag confidential"><em>Confidential</em></span></li>
+        <li><a href="research.html">AI Research</a></li>
+        <li><a href="RIOT.html">Embedded Security</a></li>
+        <li><a href="TwoQubits.html">Introduction into Quantum Computing</a> <span class="tag Hot Topic"> <em>Hot Topic🔥</em></span></li>
+      </ul>
+    </section>
+
+    <section id="projects" data-icon="fa-code">
+      <h2>Projects</h2>
+      <div class="projects-container">
+        <h3>Secure Real-time Chat App</h3>
+        <img src="CliqueOverview.png" alt="Clique Chat App Functionalities Overview">
+        <div class="project-description">
+          <p>Experience seamless, end-to-end encrypted messaging with AI-powered icebreakers and Keycloak authentication, all wrapped in an intuitive interface.</p>
+          <a href="CliqueProject.html" class="learn-more">Learn More &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors" data-icon="fa-trophy">
+      <h2>Honors</h2>
+      <div class="honors-gallery">
+        <figure>
+          <img src="PriceCompetition.jpg" alt="Award for Startup Idea" />
+          <figcaption>Award for startup idea clique together with Utkarsh Fulara</figcaption>
+        </figure>
+        <figure>
+          <img src="Dean's List.jpg" alt="Dean's List" />
+          <figcaption>Award for being in the top 5% of my University's faculty in the first Semester</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="hobbies" data-icon="fa-baseball-ball">
+      <h2>Hobbies</h2>
+      <ul>
+        <li>Reading
+          <ul>
+            <li><a href="MyTopBooks.html">My Top 5 Books</a></li>
+            <li><a href="CurrentBooks.html">Books I Am Currently Reading</a></li>
+          </ul>
+        </li>
+        <li>Sports</li>
+      </ul>
+      <div class="gallery">
+        <img src="Gym1.JPG" alt="Me with friend at the gym">
+        <img src="Gym2.JPG" alt="Me with friend at the locker room of a gym">
+        <img src="Gym3.JPG" alt="After workout picture">
+      </div>
+      <div class="video-container">
+        <video width="640" height="360" controls muted>
+          <source src="Muay Thai.MP4" type="video/mp4" alt="Me after Muay Thai Training">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section id="contact" data-icon="fa-envelope">
+      <h2>Contact</h2>
+      <div class="contact-container">
+        <p>Feel free to reach out to me with any questions about my research, projects, or potential collaborations.</p>
+        <a href="mailto:sumshikandrej@gmail.com" class="email-btn">
+          <i class="fas fa-envelope"></i>
+          Email Me
+        </a>
+      </div>
+      <footer>
+        <p>&copy; Andrej Sum-Shik <br>Faculty 2 Frankfurt University of Applied Sciences</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Egg animation elements - Sequence of images showing hatching process -->
+  <div id="egg-container">
+    <img id="egg-intact" src="egg.png" alt="Drawn like picture of egg">
+    <img id="egg-cracked-1" src="cracked egg.png" alt="Slightly cracked egg">
+    <img id="egg-cracked-2" src="popped egg.png" alt="Popped egg">
+    <img id="egg-cracked-3" src="cracked and popped egg.png" alt="Popped and further cracked egg">
+    <img id="egg-fully-popped" src="fully popped egg.png" alt="Fully popped egg">
+    <img id="egg-character" src="Mascot.png" alt="Mascot of Shibaura Institute of Technology ">
+  </div>
+  <img id="ninja" src="ninja.png" alt="Drawn Ninja in a running pose">
+
+  <script>
+    // Ninja animation - Activates on scroll events
+    const ninja = document.getElementById('ninja');
+    let scrollTimer;
+    
+    window.addEventListener('scroll', () => {
+      ninja.classList.add('running');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => ninja.classList.remove('running'), 300);
+      
+      // Trigger egg animation when scrolling
+      animateEgg();
+    });
+
+    /**
+     * Egg animation function - Controls the multi-stage hatching process
+     * Visibility of different egg states changes based on page scroll percentage
+     */
+    function animateEgg() {
+      const eggIntact = document.getElementById('egg-intact');
+      const eggCracked1 = document.getElementById('egg-cracked-1');
+      const eggCracked2 = document.getElementById('egg-cracked-2');
+      const eggCracked3 = document.getElementById('egg-cracked-3');
+      const eggFullyPopped = document.getElementById('egg-fully-popped');
+      const eggCharacter = document.getElementById('egg-character');
+      const eggContainer = document.getElementById('egg-container');
+      
+      // Calculate scroll percentage to determine animation stage
+      const scrollPosition = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = (scrollPosition / docHeight) * 100;
+      
+      // Reset all egg states to invisible first
+      eggIntact.style.opacity = "0";
+      eggCracked1.style.opacity = "0";
+      eggCracked2.style.opacity = "0";
+      eggCracked3.style.opacity = "0";
+      eggFullyPopped.style.opacity = "0";
+      eggCharacter.style.opacity = "0";
+      eggCharacter.classList.remove('visible');
+      eggContainer.classList.remove('shaking');
+      
+      // Stage 1: Intact egg (0-20% scroll)
+      if (scrollPercentage <= 20) {
+        eggIntact.style.opacity = "1";
+        eggIntact.style.zIndex = "10";
+        
+        // Add shaking animation when actively scrolling
+        if (scrollPosition > 0) {
+          eggContainer.classList.add('shaking');
+        }
+      }
+      // Stage 2: First crack (20-35% scroll)
+      else if (scrollPercentage <= 35) {
+        eggCracked1.style.opacity = "1";
+        eggCracked1.style.zIndex = "10";
+        eggContainer.classList.add('shaking');
+      }
+      // Stage 3: More cracks with mascot barely visible (35-50% scroll)
+      else if (scrollPercentage <= 50) {
+        eggCracked2.style.opacity = "1";
+        eggCracked2.style.zIndex = "10";
+        eggContainer.classList.add('shaking');
+        
+        // Show just the top of mascot peeking out
+        eggCharacter.style.opacity = "0.4";
+        eggCharacter.style.zIndex = "5";
+        eggCharacter.style.transform = "translateY(5px) scale(0.7)";
+      }
+      // Stage 4: More visible mascot (50-65% scroll)
+      else if (scrollPercentage <= 65) {
+        eggCracked3.style.opacity = "1";
+        eggCracked3.style.zIndex = "10";
+        
+        eggCharacter.style.opacity = "0.7";
+        eggCharacter.style.zIndex = "5";
+        eggCharacter.style.transform = "translateY(-5px) scale(0.8)";
+      }
+      // Stage 5: Fully popped egg (65-80% scroll)
+      else if (scrollPercentage <= 80) {
+        eggFullyPopped.style.opacity = "1";
+        eggFullyPopped.style.zIndex = "10";
+        
+        eggCharacter.style.opacity = "0.9";
+        eggCharacter.style.zIndex = "5";
+        eggCharacter.style.transform = "translateY(-15px) scale(0.9)";
+      }
+      // Stage 6: Only mascot remains fully visible (80-100% scroll)
+      else {
+        eggCharacter.style.opacity = "1";
+        eggCharacter.style.zIndex = "15";
+        eggCharacter.style.transform = "translateY(-5px) scale(1)";
+        eggCharacter.classList.add('visible');
+      }
+    }
+    
+    // Initialize animations when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      animateEgg();
+      createDataPoints();
+    });
+
+    /**
+     * Creates animated background data points
+     * Generates different colored points on left and right sides of the page
+     * for a subtle visual effect
+     */
+    function createDataPoints() {
+      const numPoints = 60;
+      const container = document.body;
+      for (let i = 0; i < numPoints; i++) {
+        const point = document.createElement('div');
+        point.className = 'data-point';
+        
+        // Randomly position points on left side
+        const side = Math.random() > 0.5 ? 'left' : 'right';
+        const leftPos = side === 'left'
+          ? Math.random() * 350
+          : window.innerWidth - Math.random() * 350;
+        
+        point.style.left = `${leftPos}px`;
+        point.style.top = `${Math.random() * window.innerHeight}px`;
+        
+        // Randomize point size between 2-8px
+        const size = Math.random() * 6 + 2;
+        point.style.width = `${size}px`;
+        point.style.height = `${size}px`;
+        
+        // Green points on left side
+        if (side === 'left') {
+          point.style.backgroundColor = `rgba(86,138,112,${Math.random()})`;
+        }
+        
+        // Add random animation timing for each point
+        point.style.animationDelay = `${Math.random() * 5}s`;
+        point.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        
+        container.appendChild(point);
+      }
+    }
+    
+    // Recreate data points when window is resized
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.data-point').forEach(p => p.remove());
+      createDataPoints();
+    });
+  </script>
+</body>
+</html>

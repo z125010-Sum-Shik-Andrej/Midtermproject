@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working in RIOT</title>
+  <link rel="stylesheet" href="embeddedstyle.css" />
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-button">← Back to Main Page</a>
+
+    <header>
+      <h1>Working in RIOT</h1>
+      <p>An overview of RIOT OS and current authorization task using CoAP and CWTs</p>
+    </header>
+
+    <section id="riot-os">
+      <h2>What is RIOT?</h2>
+      <p>
+        RIOT is a free, open-source operating system designed for Internet of Things (IoT) devices.
+        It provides a lightweight, energy-efficient kernel, standardized API, and support for a wide
+        range of hardware architectures. RIOT aims to combine the advantages of microcontroller-level
+        programmability with an API and network stack familiar to embedded Linux developers, making it
+        suitable for constrained IoT environments.
+      </p>
+      <ul>
+        <li>Microkernel architecture with real-time capabilities</li>
+        <li>Support for C and C++ programming</li>
+        <li>IPv6-based networking (6LoWPAN, CoAP, UDP, DTLS, etc.)</li>
+        <li>Modular design for easy integration of drivers and protocols</li>
+      </ul>
+    </section>
+
+    <section id="current-task">
+      <h2>Current Task: Authorization Mechanism over CoAP with CWTs</h2>
+      <p>
+        My current task involves implementing an authorization mechanism over CoAP (Constrained
+        Application Protocol) using CBOR Web Tokens (CWTs). The design follows the profile defined
+        in the <a href="https://datatracker.ietf.org/doc/draft-ietf-ace-edhoc-oscore-profile/" target="_blank">
+        ACE EDHOC OSCORE Profile RFC Draft</a>. This profile specifies how to establish secure OSCORE
+        contexts between constrained clients and servers, leveraging EDHOC for key exchange and CWTs
+        for conveying access tokens. The main actors are the client (the one wanting access to a resource), the Authorization server
+        (an Instance that both the client and the Resource Server trust) and a Resource Server (A server who has the resource, that the client wants).
+        I need to implement this draft for RIOT, in which the Client is the embedded device running on RIOT. All processes running on RIOT
+        need to be automated and become part of the OS, for illustrating the functionality an example implementation of RS and AS is also necessary.
+      </p>
+      <h3>Key Steps:</h3>
+      <ol>
+        <li>Client uses a secure context to get an asymmetric proof of possession token and a means to authenticate RS from the AS.</li>
+        <li>Client establish an OSCORE context with the RS using Elliptic-Curve Diffie-Hellman.</li>
+        <li>Client embeds the CWT in the message flow so that RS can authenticate the client.</li>
+        <li>RS has to authenticate against the means that RS gave to the client.</li>
+        <li>When both parties trust each other, the resource can be send to the client over the secure OSCORE context.</li>
+      </ol>
+      <p>
+        For complete details, refer to the <a href="https://datatracker.ietf.org/doc/draft-ietf-ace-edhoc-oscore-profile/" target="_blank">
+        draft-ietf-ace-edhoc-oscore-profile</a>.
+      </p>
+    </section>
+
+    <div class="icon-container">
+      <img src="Security static.png" class="static" alt="Security (static) image">
+      <img src="Security transition.gif" class="animated" alt="Security (animated) gif">
+    </div>
+
+    <footer>
+      <p>&copy; 2025 RIOT Development</p>
+    </footer>
+  </div>
+
+  <script>
+    /* Scroll position detection for security icon visibility */
+    function checkScrollPosition() {
+      const scrolled = window.scrollY + window.innerHeight;
+      const totalHeight = document.body.scrollHeight;
+      const iconContainer = document.querySelector('.icon-container');
+      
+      if (totalHeight - scrolled < 150) {
+        iconContainer.classList.add('visible');
+        iconContainer.classList.remove('hidden');
+      } else {
+        iconContainer.classList.add('hidden');
+        iconContainer.classList.remove('visible');
+      }
+    }
+
+    /* Creates animated data points that flow up the side panels */
+    function createDataPoint() {
+      const dataPoint = document.createElement('div');
+      dataPoint.className = 'data-point';
+      
+      // Random positioning within the side panels
+      const isLeftPanel = Math.random() < 0.5;
+      const panelWidth = window.innerWidth <= 767 ? 60 : (window.innerWidth <= 900 ? 120 : 250);
+      
+      if (isLeftPanel) {
+        dataPoint.style.left = Math.random() * (panelWidth - 20) + 10 + 'px';
+      } else {
+        dataPoint.style.right = Math.random() * (panelWidth - 20) + 10 + 'px';
+      }
+      
+      // Random colors matching the security theme
+      const colors = ['#3b82f6', '#10b981', '#f59e0b', '#6366f1'];
+      dataPoint.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Random size for visual variety
+      const size = Math.random() * 8 + 6;
+      dataPoint.style.width = size + 'px';
+      dataPoint.style.height = size + 'px';
+      
+      // Random animation delay for natural flow
+      dataPoint.style.animationDelay = Math.random() * 2 + 's';
+      
+      document.body.appendChild(dataPoint);
+      
+      // Remove the data point after animation completes
+      setTimeout(() => {
+        if (dataPoint.parentNode) {
+          dataPoint.parentNode.removeChild(dataPoint);
+        }
+      }, 6000);
+    }
+
+    /* Initialize event listeners and animations */
+    window.addEventListener('scroll', checkScrollPosition);
+    window.addEventListener('load', checkScrollPosition);
+    window.addEventListener('resize', checkScrollPosition);
+
+    // Create data points at regular intervals
+    setInterval(createDataPoint, 800);
+    
+    // Create initial batch of data points
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createDataPoint, i * 200);
+    }
+  </script>
+</body>
+</html>

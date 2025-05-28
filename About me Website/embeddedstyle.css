@@ -1,0 +1,460 @@
+ /* Base page styling with security-themed background and centered layout */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: 
+        linear-gradient(rgba(240,245,250,0.85), rgba(240,245,250,0.85)),
+        linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f172a 100%);
+      background-attachment: fixed;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      padding-bottom: 150px;
+      overflow-x: hidden;
+    }
+
+    /* Left side panel with cybersecurity circuit pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(to bottom,
+        rgba(30, 58, 138, 0.95),
+        rgba(15, 23, 42, 0.95)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' fill='%230f172a'/%3E%3C!-- Security circuit nodes --%3E%3Ccircle cx='80' cy='80' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='160' cy='120' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='240' cy='80' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='80' cy='200' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='160' cy='240' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='240' cy='200' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='80' cy='320' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='160' cy='360' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='240' cy='320' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='80' cy='440' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='160' cy='480' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='240' cy='440' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='80' cy='560' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='160' cy='600' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='240' cy='560' r='8' fill='%233b82f6' opacity='0.8'/%3E%3Ccircle cx='80' cy='680' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='160' cy='720' r='8' fill='%2310b981' opacity='0.8'/%3E%3Ccircle cx='240' cy='680' r='8' fill='%2310b981' opacity='0.8'/%3E%3C!-- Circuit connections --%3E%3Cpath d='M80,80 L160,120 L240,80' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M80,200 L160,240 L240,200' stroke='%2306d6a0' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M80,320 L160,360 L240,320' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M80,440 L160,480 L240,440' stroke='%2306d6a0' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M80,560 L160,600 L240,560' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M80,680 L160,720 L240,680' stroke='%2306d6a0' stroke-width='2' fill='none' opacity='0.6'/%3E%3C!-- Vertical security pathways --%3E%3Cpath d='M80,80 L80,200 L80,320 L80,440 L80,560 L80,680' stroke='%23f59e0b' stroke-width='3' fill='none' opacity='0.7'/%3E%3Cpath d='M160,120 L160,240 L160,360 L160,480 L160,600 L160,720' stroke='%23f59e0b' stroke-width='3' fill='none' opacity='0.7'/%3E%3Cpath d='M240,80 L240,200 L240,320 L240,440 L240,560 L240,680' stroke='%23f59e0b' stroke-width='3' fill='none' opacity='0.7'/%3E%3C!-- Security lock symbols --%3E%3Crect x='140' y='140' width='40' height='30' rx='5' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3Ccircle cx='160' cy='150' r='8' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3Crect x='140' y='380' width='40' height='30' rx='5' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3Ccircle cx='160' cy='390' r='8' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3Crect x='140' y='620' width='40' height='30' rx='5' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3Ccircle cx='160' cy='630' r='8' fill='none' stroke='%23fbbf24' stroke-width='2' opacity='0.8'/%3E%3C/svg%3E");
+      box-shadow: inset -5px 0 25px rgba(59, 130, 246, 0.3);
+      border-right: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    /* Right side panel with network security pattern */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(to bottom,
+        rgba(30, 58, 138, 0.95),
+        rgba(15, 23, 42, 0.95)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' fill='%230f172a'/%3E%3C!-- Network grid --%3E%3Cdefs%3E%3Cpattern id='grid' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 50 0 L 0 0 0 50' fill='none' stroke='%2316213e' stroke-width='2' opacity='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='800' fill='url(%23grid)'/%3E%3C!-- Server/node representations --%3E%3Crect x='50' y='100' width='60' height='40' rx='5' fill='none' stroke='%2310b981' stroke-width='2' opacity='0.8'/%3E%3Crect x='290' y='100' width='60' height='40' rx='5' fill='none' stroke='%2310b981' stroke-width='2' opacity='0.8'/%3E%3Crect x='50' y='250' width='60' height='40' rx='5' fill='none' stroke='%233b82f6' stroke-width='2' opacity='0.8'/%3E%3Crect x='290' y='250' width='60' height='40' rx='5' fill='none' stroke='%233b82f6' stroke-width='2' opacity='0.8'/%3E%3Crect x='50' y='400' width='60' height='40' rx='5' fill='none' stroke='%2310b981' stroke-width='2' opacity='0.8'/%3E%3Crect x='290' y='400' width='60' height='40' rx='5' fill='none' stroke='%2310b981' stroke-width='2' opacity='0.8'/%3E%3Crect x='50' y='550' width='60' height='40' rx='5' fill='none' stroke='%233b82f6' stroke-width='2' opacity='0.8'/%3E%3Crect x='290' y='550' width='60' height='40' rx='5' fill='none' stroke='%233b82f6' stroke-width='2' opacity='0.8'/%3E%3C!-- Central security hub --%3E%3Ccircle cx='200' cy='400' r='40' fill='none' stroke='%23f59e0b' stroke-width='3' opacity='0.9'/%3E%3Ccircle cx='200' cy='400' r='25' fill='none' stroke='%23f59e0b' stroke-width='2' opacity='0.7'/%3E%3Ccircle cx='200' cy='400' r='10' fill='%23f59e0b' opacity='0.8'/%3E%3C!-- Network connections --%3E%3Cpath d='M110,120 L160,400 L290,270' stroke='%2306d6a0' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M110,270 L160,400 L290,420' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M110,420 L160,400 L290,570' stroke='%2306d6a0' stroke-width='2' fill='none' opacity='0.6'/%3E%3Cpath d='M110,570 L160,400 L290,120' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.6'/%3E%3C!-- Data flow indicators --%3E%3Cpath d='M200,50 L200,350' stroke='%23fbbf24' stroke-width='4' fill='none' opacity='0.8' stroke-dasharray='10,5'/%3E%3Cpath d='M200,450 L200,750' stroke='%23fbbf24' stroke-width='4' fill='none' opacity='0.8' stroke-dasharray='10,5'/%3E%3C/svg%3E");
+      box-shadow: inset 5px 0 25px rgba(16, 185, 129, 0.3);
+      border-left: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    /* Animated data points that flow up the panels */
+    @keyframes dataFlow {
+      0% { opacity: 0; transform: translateY(100vh) scale(0.5); }
+      20% { opacity: 1; transform: translateY(80vh) scale(1); }
+      80% { opacity: 1; transform: translateY(20vh) scale(1); }
+      100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    }
+
+    .data-point {
+      position: fixed;
+      border-radius: 50%;
+      z-index: 1;
+      animation: dataFlow 4s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    /* Main content container with proper centering */
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Navigation button with enhanced security styling */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .back-button:active {
+      transform: translateY(1px);
+    }
+
+    /* Header styling with security theme */
+    header {
+      text-align: center;
+      margin: 2rem 0;
+      width: 100%;
+    }
+
+    header h1 {
+      background: linear-gradient(135deg, #3b82f6, #10b981, #f59e0b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header p {
+      background: linear-gradient(135deg, #3b82f6, #10b981, #f59e0b);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Enhanced section styling with security accents */
+    section {
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    /* Security-themed left border accent */
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, #3b82f6, #10b981, #f59e0b);
+    }
+
+    section h2 {
+      color: #1e293b;
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      padding-left: 1rem;
+    }
+
+    section h3 {
+      color: #475569;
+      font-size: 1.3rem;
+      margin: 1.5rem 0 1rem 1rem;
+      font-weight: 600;
+    }
+
+    section p {
+      color: #475569;
+      line-height: 1.7;
+      margin: 1rem 0;
+      padding: 0 1rem;
+      text-align: justify;
+    }
+
+    section ul, section ol {
+      padding-left: 2rem;
+      margin: 1rem 0;
+    }
+
+    section li {
+      margin-bottom: 0.8rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Link styling with security theme */
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #10b981;
+      text-decoration: underline;
+    }
+
+    /* Enhanced security icon styling */
+    .icon-container {
+      position: fixed;
+      bottom: 30px; 
+      right: 30px;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.2));
+    }
+    
+    .icon-container.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transition: all 0.5s ease;
+    }
+    
+    .icon-container.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    .icon-container:hover {
+      transform: scale(1.15) rotate(5deg);
+      filter: drop-shadow(0 8px 25px rgba(59, 130, 246, 0.4));
+    }
+
+    .icon-container img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.4s ease;
+      border-radius: 50%;
+    }
+
+    .icon-container .static {
+      opacity: 1;
+    }
+
+    .icon-container .animated {
+      opacity: 0;
+    }
+
+    .icon-container:hover .static {
+      opacity: 0;
+    }
+
+    .icon-container:hover .animated {
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Responsive design for different screen sizes */
+    @media (max-width: 1200px) {
+      body::before, body::after {
+        width: 180px;
+      }
+      
+      .container {
+        max-width: 800px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      body::before, body::after {
+        width: 120px;
+        opacity: 0.8;
+      }
+      
+      body {
+        padding: 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .icon-container {
+        width: 100px;
+        height: 100px;
+        bottom: 25px;
+        right: 25px;
+      }
+    }
+
+    /* iPad optimizations */
+    @media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+      body {
+        padding: 1.5rem;
+      }
+      
+      .container {
+        width: 85%;
+      }
+      
+      body::before, body::after {
+        width: 100px;
+        opacity: 0.7;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      .back-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .icon-container {
+        width: 90px;
+        height: 90px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    /* iPhone and mobile optimizations */
+    @media only screen 
+    and (max-width: 767px) {
+      body::before, body::after {
+        width: 60px;
+        opacity: 0.5;
+      }
+      
+      body {
+        padding: 1rem;
+        padding-bottom: 100px;
+      }
+      
+      .container {
+        width: 90%;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      section {
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      section h2 {
+        font-size: 1.5rem;
+        padding-left: 0.5rem;
+      }
+      
+      section h3 {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+      }
+      
+      section p {
+        padding: 0 0.5rem;
+        text-align: left;
+      }
+      
+      section ul, section ol {
+        padding-left: 1.5rem;
+      }
+      
+      .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .icon-container {
+        width: 80px;
+        height: 80px;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+
+    /* Small iPhone optimizations */
+    @media only screen 
+    and (max-width: 375px) {
+      body::before, body::after {
+        width: 40px;
+        opacity: 0.4;
+      }
+      
+      .container {
+        width: 85%;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      section {
+        padding: 1rem;
+      }
+      
+      .back-button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .icon-container {
+        width: 70px;
+        height: 70px;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    /* Safe area support for newer iPhones */
+    @supports (padding: max(0px)) {
+      .back-button {
+        top: max(20px, env(safe-area-inset-top) + 10px);
+        left: max(20px, env(safe-area-inset-left) + 10px);
+      }
+      
+      body {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-bottom: max(150px, env(safe-area-inset-bottom) + 100px);
+      }
+      
+      .icon-container {
+        right: max(30px, env(safe-area-inset-right) + 20px);
+        bottom: max(30px, env(safe-area-inset-bottom) + 20px);
+      }
+    }

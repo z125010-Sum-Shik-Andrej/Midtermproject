@@ -1,0 +1,965 @@
+/* Base styling with flex layout */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      font-size: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Decorative side panels with forest and university themes */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 300px; /* Desktop width */
+      height: 100vh;
+      z-index: -1;
+      background-size: cover;
+    }
+
+    /* Left panel: Forest theme with tree silhouettes */
+    body::before {
+      left: 0;
+      background:
+        /* tree silhouettes overlay */
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 800'><polygon points='0,800 50,600 100,800' fill='rgba(255,255,255,0.05)'/><polygon points='50,800 100,650 150,800' fill='rgba(255,255,255,0.07)'/></svg>") center/contain no-repeat,
+        /* forest gradient + pattern */
+        linear-gradient(to bottom, rgba(30,63,32,0.9), rgba(52,94,54,0.9)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='800'%3E%3Cpath d='M80,800 L80,700 L40,700 L100,600...' fill='none' stroke='%2381b29a' stroke-width='5'/%3E%3C/svg%3E");
+      box-shadow: inset -5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Right panel: University theme with architectural shapes */
+    body::after {
+      right: 0;
+      background:
+        /* decorative shapes overlay */
+        url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='400'%20height='800'%3E%3Cpath%20d='M200,100%20L50,200%20L350,200%20Z'%20fill='%23b19d65'%20opacity='0.4'/%3E%3Crect%20x='60'%20y='300'%20width='80'%20height='80'%20fill='%23b19d65'%20opacity='0.3'/%3E%3Crect%20x='250'%20y='500'%20width='100'%20height='40'%20fill='%23b19d65'%20opacity='0.3'/%3E%3C/svg%3E") center/contain no-repeat,
+        /* university gradient + pattern */
+        linear-gradient(to bottom, rgba(140,21,21,0.9), rgba(177,157,101,0.9)),
+        url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='400'%20height='800'%3E%3Cpath%20d='M200,100%20L50,200%20L350,200%20Z'%20fill='%23b19d65'/%3E...%3C/svg%3E");
+      box-shadow: inset 5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Animated data points effect for side panels */
+    .data-point {
+      position: fixed;
+      border-radius: 50%;
+      z-index: -1;
+      animation: dataFlow 4s infinite ease-in-out;
+    }
+    @keyframes dataFlow {
+      0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+      50%  { opacity: 1; transform: translateY(-20px) scale(1); }
+      100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+    }
+
+    /* Fixed header with gradient background */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(to right, rgba(0,128,0,0.8), rgba(255,255,255,0.8), rgba(255,0,0,0.8));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+    
+    /* Mobile menu toggle button (hidden by default) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #333;
+      cursor: pointer;
+    }
+    
+    /* Navigation menu */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    #scroll-icon {
+      color: #333;
+      font-size: 1.5rem;
+    }
+
+    /* Main content container */
+    main {
+      padding-top: 4rem;
+      max-width: 1000px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: background 0.5s ease;
+    }
+    
+    /* Section styling with gradient background */
+    section {
+      background: linear-gradient(to right, rgba(0,128,0,0.1), rgba(255,255,255,0.8), rgba(255,0,0,0.1));
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+      width: calc(100% - 220px);
+      box-sizing: border-box;
+    }
+    
+    /* Section headings with gradient text */
+    section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, rgba(0,128,0,0.7), rgba(255,0,0,0.7));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 1.8rem;
+    }
+
+    /* Hero section styling */
+    #hero h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      background: linear-gradient(to right, rgba(0,128,0,0.9), rgba(255,0,0,0.9));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    #hero p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero img.portrait {
+      display: block;
+      margin: 0 auto 1.5rem;
+      max-width: 200px;
+      height: auto;
+    }
+
+    #hero .images-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 1rem auto;
+      flex-wrap: wrap;
+    }
+
+    #hero .images-container img {
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Timetable section with horizontal scroll capability */
+    #timetable {
+      overflow-x: auto;
+    }
+    
+    #timetable table {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      min-width: 500px; /* Prevents table from shrinking too much */
+    }
+    
+    #timetable th, #timetable td {
+      border: 1px solid #333;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Projects section with vertical layout */
+    #projects .projects-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+    
+    #projects .projects-container img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      max-height: 300px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    
+    #projects .project-description {
+      text-align: center;
+      max-width: 800px;
+    }
+    
+    #projects .project-description a.learn-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: rgba(0,128,0,0.9);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Honors section with gallery layout */
+    #honors .honors-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    #honors .honors-gallery figure {
+      text-align: center;
+      width: 300px;
+      max-width: 100%;
+    }
+    
+    #honors .honors-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    #honors .honors-gallery figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Hobbies section with list and media gallery */
+    #hobbies ul {
+      list-style-position: inside;
+      margin: 0 auto 1.5rem;
+      padding: 0;
+      max-width: 400px;
+      text-align: left;
+    }
+    
+    #hobbies .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    #hobbies .gallery img {
+      width: 200px;
+      max-width: calc(50% - 0.5rem);
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    
+    #hobbies .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    
+    #hobbies video {
+      max-width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* CV section styling */
+    #cv p {
+      text-align: center;
+    }
+
+    #cv img {
+      display: block;
+      margin: 1.5rem auto 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #cv a.btn {
+      display: block;
+      text-align: center;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+      background-color: rgba(0,100,0,0.7);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    /* Contact section with centered layout */
+    #contact {
+      text-align: center;
+    }
+    
+    #contact .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem auto;
+    }
+    
+    /* Animated email button */
+    #contact .email-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(to right, rgba(0,128,0,0.7), rgba(255,0,0,0.7));
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 1rem 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    #contact .email-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    #contact .email-btn i {
+      font-size: 1.2rem;
+    }
+    
+    #contact p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    /* Responsive layout breakpoints */
+    @media (max-width: 1200px) {
+      section { 
+        margin: 2rem auto; 
+        width: calc(100% - 220px);
+      }
+    }
+    
+    @media (max-width: 992px) {
+      body::before, body::after { 
+        width: 200px; /* Reduce side panel width on medium screens */
+      }
+      
+      section { 
+        width: calc(100% - 120px);
+        margin: 2rem auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body::before, body::after { 
+        width: 100px; /* Further reduce side panel width on smaller screens */
+      }
+      
+      section { 
+        width: calc(100% - 60px);
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+      }
+      
+      #hero h1 {
+        font-size: 2rem;
+      }
+      
+      #hero p {
+        font-size: 1rem;
+      }
+      
+      /* Hamburger menu activation for tablet view */
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        flex-direction: column;
+        background: linear-gradient(to bottom, rgba(0,128,0,0.9), rgba(255,255,255,0.9), rgba(255,0,0,0.9));
+        top: 3.5rem;
+        left: 0;
+        width: 100%;
+        gap: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+      }
+      
+      nav ul.show {
+        height: auto;
+      }
+      
+      nav ul li {
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      body::before, body::after { 
+        width: 50px; /* Minimal side panels on phones */
+        opacity: 0.7; /* Make them slightly transparent */
+      }
+      
+      section {
+        width: calc(100% - 30px);
+        padding: 1rem;
+        margin: 1rem auto;
+      }
+      
+      #hero .images-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      #hero .images-container img {
+        width: 200px;
+      }
+      
+      #hobbies .gallery img {
+        max-width: 100%; /* Full width on smallest screens */
+      }
+      
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Animated ninja character that bounces when user scrolls */
+    #ninja {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 50px;
+      height: auto;
+      pointer-events: none; /* Prevents interaction with the ninja */
+      z-index: 1001; /* Ensures ninja stays above other content */
+    }
+    
+    /* Ninja running bounce animation - simple up/down movement */
+    @keyframes run {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); } /* Peak of bounce */
+      100% { transform: translateY(0); }
+    }
+    
+    /* Class applied during active scrolling to activate animation */
+    #ninja.running { 
+      animation: run 0.3s infinite; 
+    }
+    
+    /* Egg container positioned in bottom left corner */
+    #egg-container {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 70px;
+      height: 70px;
+      z-index: 1001; /* Same z-index as ninja for consistency */
+    }
+    
+    /* Common styles for all egg animation states */
+    #egg-intact, #egg-cracked-1, #egg-cracked-2, #egg-cracked-3, 
+    #egg-fully-popped, #egg-character {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: opacity 0.5s, transform 0.5s; /* Smooth transitions between states */
+      opacity: 0;
+      pointer-events: none; /* Prevents interaction with egg elements */
+    }
+    
+    /* Initial egg state is visible by default */
+    #egg-intact { 
+      opacity: 1; 
+    }
+    
+    /* Egg shaking animation for early hatching stages */
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); } /* Left shake */
+      50% { transform: translateX(0); }
+      75% { transform: translateX(3px); } /* Right shake */
+      100% { transform: translateX(0); }
+    }
+    
+    /* Applied to egg container during active scrolling */
+    .shaking {
+      animation: shake 0.3s infinite;
+    }
+    
+    /* Animation for character fully emerging from egg */
+    @keyframes emerge {
+      0% { transform: translateY(20px); } /* Starting below */
+      100% { transform: translateY(-5px); } /* Final position slightly elevated */
+    }
+    
+    /* Subtle peeking animation for transitional egg states */
+    @keyframes peek {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-2px); } /* Subtle upward motion */
+      100% { transform: translateY(0); }
+    }
+    
+    /* Final character state once fully hatched */
+    #egg-character.visible {
+      opacity: 1;
+      animation: emerge 1s ease-out forwards; /* Animation plays once and holds end state */
+    }
+    
+    /* Class for transitional states when character is partially visible */
+    .mascot-peeking {
+      opacity: 1;
+      z-index: 10;
+      transform: translateY(-10px); /* Slight elevation to show peeking out */
+    }
+
+    /* iPad-specific optimizations */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      #hobbies .gallery img {
+        width: 160px;
+        max-height: 120px;
+        object-fit: cover;
+      }
+      
+      #projects .project-description {
+        font-size: 0.9rem;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      
+      body::before, body::after { 
+        width: 150px; /* Wider side panels for better visibility */
+      }
+      
+      main {
+        max-width: 70%;
+      }
+      
+      section { 
+        width: 85%;
+        padding: 1rem;
+        margin: 1.5rem auto;
+        max-width: 550px;
+      }
+      
+      header {
+        padding: 0.4rem 0.8rem;
+      }
+      
+      /* Scale down large elements */
+      img, video, .projects-container img, .honors-gallery img {
+        max-width: 85%;
+        height: auto;
+      }
+      
+      /* Adjust hero section */
+      #hero img.portrait {
+        max-width: 150px;
+      }
+      
+      #hero .images-container img {
+        width: 180px;
+      }
+      
+      /* Adjust text sizing for iPad */
+      #hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+      }
+      
+      #hero p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      /* Optimize timetable for iPad */
+      #timetable table {
+        min-width: unset;
+        font-size: 0.8rem;
+        max-width: 480px;
+        transform: scale(0.95);
+        transform-origin: center top;
+        margin: 0 auto;
+      }
+      
+      #timetable th, #timetable td {
+        padding: 0.35rem;
+        font-size: 0.8rem;
+      }
+      
+      /* Honors section adjustments */
+      #honors .honors-gallery figure {
+        width: 180px;
+      }
+      
+      #honors .honors-gallery img {
+        max-width: 160px;
+      }
+    }
+
+    /* iPhone-specific optimizations */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+      body::before, body::after { 
+        width: 45px;
+        opacity: 0.85;
+      }
+      
+      main {
+        padding-top: 3.5rem;
+        max-width: 85%;
+      }
+      
+      section {
+        width: 75%;
+        padding: 0.7rem;
+        margin: 0.8rem auto;
+        border-radius: 6px;
+        max-width: 300px;
+      }
+      
+      /* Scale down all images */
+      img, video {
+        max-width: 85%;
+        height: auto;
+      }
+      
+      /* Adjust hero section */
+      #hero h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      #hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.7rem;
+      }
+      
+      #hero img.portrait {
+        max-width: 120px;
+        margin-bottom: 0.8rem;
+      }
+      
+      #hero .images-container img {
+        width: 140px;
+      }
+      
+      /* Project image sizing */
+      #projects .projects-container img {
+        max-height: 130px;
+        max-width: 85%;
+      }
+      
+      /* Enhanced timetable for iPhone with scrolling */
+      #timetable {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 1.2rem;
+        padding: 0 0.8rem;
+        width: calc(100% + 1.6rem);
+      }
+      
+      #timetable table {
+        min-width: 100%;
+        width: 100%;
+        font-size: 0.65rem;
+        transform: scale(0.8);
+        transform-origin: left top;
+        margin-bottom: 1rem;
+      }
+      
+      #timetable th, #timetable td {
+        padding: 0.2rem;
+        font-size: 0.65rem;
+        line-height: 1.1;
+      }
+      
+      /* Horizontal scroll indicator for timetable */
+      #timetable::after {
+        content: "⟺ Scroll to see more";
+        display: block;
+        text-align: center;
+        font-size: 0.7rem;
+        color: rgba(0,0,0,0.5);
+        padding: 0.3rem 0;
+      }
+      
+      /* Vertically stacked honors section */
+      #honors .honors-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+      }
+      
+      #honors .honors-gallery figure {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+      }
+      
+      #honors .honors-gallery img {
+        max-width: 160px;
+        height: auto;
+        margin-bottom: 0.5rem;
+      }
+      
+      #honors .honors-gallery figcaption {
+        font-size: 0.85rem;
+        text-align: center;
+        max-width: 200px;
+      }
+      
+      /* Projects section resizing */
+      #projects .projects-container img {
+        max-height: 150px;
+        max-width: 90%;
+      }
+      
+      /* Hobbies section adjustments */
+      #hobbies ul {
+        padding-left: 0.5rem;
+        max-width: 100%;
+      }
+      
+      #hobbies .gallery {
+        gap: 0.7rem;
+      }
+      
+      #hobbies .gallery img {
+        width: 115px;
+        max-height: 90px;
+        object-fit: cover;
+      }
+      
+      /* Contact button resize */
+      #contact .email-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      
+      /* Animation element scaling */
+      #egg-container,
+      #ninja {
+        transform: scale(0.7);
+        bottom: 5px;
+      }
+      
+      #ninja {
+        right: 5px;
+      }
+      
+      #egg-container {
+        left: 5px;
+      }
+    }
+
+    /* Larger iPhone Pro Max optimizations */
+    @media only screen and (min-device-width: 428px) and (max-device-width: 767px) {
+      body::before, body::after { 
+        width: 60px;
+      }
+      
+      section {
+        max-width: 350px;
+      }
+      
+      #timetable table {
+        font-size: 0.4rem;
+        transform: scale(0.65);
+      }
+      
+      #honors .honors-gallery img {
+        max-width: 180px;
+      }
+      
+      #honors .honors-gallery figcaption {
+        max-width: 250px;
+      }
+      
+    }
+
+    /* iPhone landscape orientation optimizations */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: landscape) {
+      body::before, body::after {
+        width: 60px;
+      }
+      
+      main {
+        max-width: 80%;
+      }
+      
+      section {
+        padding: 0.7rem;
+        margin: 0.7rem auto;
+        width: 75%;
+        max-width: 450px;
+      }
+      
+      #timetable table {
+        font-size: 0.6rem;
+        transform: scale(0.85);
+        max-width: 75%;
+      }
+      
+      /* Grid layouts for landscape orientation */
+      #projects .projects-container,
+      #hobbies .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
+      }
+      
+      #honors .honors-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      #honors .honors-gallery figure {
+        width: 100%;
+      }
+      
+      #hero h1 {
+        font-size: 1.3rem;
+      }
+      
+      #hero img.portrait {
+        max-width: 100px;
+        margin-bottom: 0.7rem;
+      }
+    }
+
+    /* iPad Pro-specific adjustments */
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+      body::before, body::after { 
+        width: 180px;
+      }
+      
+      main {
+        max-width: 70%;
+      }
+      
+      section {
+        width: 85%;
+        margin: 1.8rem auto;
+        max-width: 650px;
+      }
+    }
+
+    /* Safari-specific fixes for iOS */
+    @supports (-webkit-touch-callout: none) {
+      #timetable {
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      #contact .email-btn,
+      #cv a.btn {
+        -webkit-appearance: none;
+      }
+      
+      #hero h1,
+      section h2 {
+        -webkit-text-fill-color: transparent;
+      }
+      
+      #timetable table {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+      }
+    }
+
+    /* Fix for fixed elements when iOS keyboard appears */
+    @media screen and (max-height: 450px) {
+      #ninja, 
+      #egg-container {
+        position: absolute;
+      }
+    }
+
+    /* iPhone 14 and similar device specific navigation centering */
+    @media only screen and (max-width: 450px) and (min-width: 375px) {
+      nav ul {
+        position: static !important;
+        flex-direction: row !important;
+        background: none !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        justify-content: center !important;
+        gap: 0.3rem !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      
+      nav ul li {
+        padding: 0.2rem 0.3rem !important;
+        text-align: center !important;
+        border-bottom: none !important;
+        font-size: 0.7rem !important;
+      }
+      
+      nav a {
+        font-size: 0.7rem !important;
+        font-weight: 500 !important;
+      }
+      
+      .menu-toggle {
+        display: none !important;
+      }
+      
+      header {
+        padding: 0.3rem 0.5rem !important;
+      }
+    }
+
+    

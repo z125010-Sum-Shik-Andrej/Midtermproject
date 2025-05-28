@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Based Chat App</title>
+  <link rel="stylesheet" href="Cliquestyle.css" />
+</head>
+<body>
+  <a href="index.html" class="back-button">Back to Main Page</a>
+  <header>
+    <h1>Web Based Chat App</h1>
+  </header>
+  
+  <main>
+    <section id="overall-idea">
+      <h2>Overall Idea</h2>
+      <p>This project delivers a real-time web chat application that helps users connect seamlessly. Each user maintains a profile with a personal description. When browsing other profiles, the system generates personalized "icebreaker" suggestions based on user profiles to initiate conversations. Chats are instantaneous and real-time and end-to-end encrypted.</p>
+    </section>
+    
+    <section id="ai-part">
+      <h2>AI Part</h2>
+      <p>We integrated a fine-tuned GPT-2 medium model to analyze user profile descriptions and generate appropriate first messages. The AI feature draws on transfer learning to produce two-sentence prompts that reaffirm user interests and pose engaging questions.</p>
+    </section>
+    
+    <section id="authentication">
+      <h2>Authentication with Keycloak</h2>
+      <p>Authentication and authorization are handled via Keycloak, an open-source identity management service. Keycloak is containerized with Docker and acts as a microservice. Frontend requests include bearer tokens, which are validated by Keycloak before granting access to protected resources.</p>
+    </section>
+    
+    <section id="real-time-chatting">
+      <h2>Real-Time Chatting</h2>
+      <p>Chat uses a WebSocket-based publish-subscribe architecture. Each user subscribes to a unique message queue. When a message is sent, the server publishes it directly to the recipient's queue and persists it to the database, ensuring instant delivery without manual refresh. As each user is subscribed to his own queue, he can asynchronously receive the new message.</p>
+    </section>
+    
+    <section id="e2ee">
+      <h2>End-to-End Encryption</h2>
+      <p>All messages are secured with end-to-end encryption. Upon creating a profile each user has to create a secure password, for this password only a hash is saved to database. When creating a new account a public/private key pair is generated of which the private key is encrypted by the password.</p>
+      <p>Only then the keypair is uploaded to the db. When creating new chat the first initiator creates a symmetric key with which he encrypts the message. He gets the recipients public key and encrypts two copies of the symmetric key. One copy in encrypted with his public key and the other with the recipient public key.</p>
+      <p>Only then are these copies uploaded to database. When the recipient logs in he types in his password, his private key is fetched from the database and decrypted with his password. He then selects the new chat fetches the symmetric key copy destined for him and decrypts it using his private key.</p>
+    </section>
+    
+     <button class="cta-button pulse" onclick="openIcebreakerPDF()">Start Chatting Now</button>
+    
+  </main>
+
+  <script>
+    // Generate notification dots for social effect
+    function createNotificationDots() {
+      const numDots = 40;
+      const container = document.body;
+      
+      for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'notification-dot';
+        
+        // Random positions - only in the left side panel area
+        const side = Math.random() > 0.5 ? 'left' : 'right';
+        const leftPos = side === 'left' ? 
+                         Math.random() * 250 : 
+                         window.innerWidth - Math.random() * 250;
+        
+        dot.style.left = `${leftPos}px`;
+        dot.style.top = `${Math.random() * window.innerHeight}px`;
+        
+        // Random sizes
+        const size = Math.random() * 6 + 4;
+        dot.style.width = `${size}px`;
+        dot.style.height = `${size}px`;
+        
+        // Random animation delay
+        dot.style.animationDelay = `${Math.random() * 4}s`;
+        
+        container.appendChild(dot);
+      }
+    }
+    /**
+     * Unfortunately our website is not live so for now you can read the report describing it.
+     * */
+    function openIcebreakerPDF() {
+      const link = document.createElement('a');
+      link.href = "IcebreakerReportChanged.pdf";
+      link.target = "_blank"; 
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    
+    // Call dot creation once DOM is loaded
+    window.addEventListener('DOMContentLoaded', createNotificationDots);
+  </script>
+</body>
+</html>
